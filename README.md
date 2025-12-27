@@ -41,11 +41,11 @@ python tcp_yeni_client.py
 
 2-Netem ile Ağ Koşulları Oluşturma: 
 
-- Gecikme eklemek:
+- NetEm Başlama:
 ```bash
-sudo tc qdisc add dev eth0 root netem delay 100ms
+sudo tc qdisc add dev lo root netem delay 100ms loss 1%
 ```
-- Paket kaybı eklemek:
+- NetEm Kaldırma:
 ```bash
-sudo tc qdisc change dev eth0 root netem loss 1%
+sudo tc qdisc del dev lo root
 ```  
